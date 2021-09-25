@@ -16,7 +16,7 @@ class CreateCommandeProduitTable extends Migration
         Schema::create('commande_produit', function (Blueprint $table) {
             $table->foreignId('commande_id')->constrained();
             $table->foreignId('produit_id')->constrained();
-            $table->integer('quantite')->default(0);
+            $table->integer('quantite')->default(1);
             $table->timestamps();
         });
     }
