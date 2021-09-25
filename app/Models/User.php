@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Adresse::class);
     }
+
+    public function liked_produits()
+    {
+        return $this->belongsToMany(Produit::class, 'users_like_produits');
+    }
 }
