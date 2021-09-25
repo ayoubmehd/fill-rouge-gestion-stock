@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommandesProduitsTable extends Migration
+class CreateCommandeProduitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCommandesProduitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commandes_produits', function (Blueprint $table) {
+        Schema::create('commande_produit', function (Blueprint $table) {
             $table->foreignId('commande_id')->constrained();
             $table->foreignId('produit_id')->constrained();
             $table->integer('quantite')->default(0);
@@ -28,6 +28,6 @@ class CreateCommandesProduitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commandes_produits');
+        Schema::dropIfExists('commande_produit');
     }
 }
