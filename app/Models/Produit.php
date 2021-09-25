@@ -18,4 +18,9 @@ class Produit extends Model
     {
         return $this->belongsToMany(User::class, 'users_like_produits');
     }
+
+    public function commandes()
+    {
+        return $this->belongsToMany(Commande::class);
+    }
 }

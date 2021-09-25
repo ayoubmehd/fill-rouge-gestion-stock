@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Produit::class, 'users_like_produits');
     }
+
+    public function commandes()
+    {
+        $this->belongsTo(Commande::class);
+    }
 }

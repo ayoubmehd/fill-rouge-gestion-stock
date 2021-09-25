@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Livraison extends Model
 {
     use HasFactory;
+
+    /***
+     * Relations 
+     * 
+     * */
+    public function commande()
+    {
+        return $this->hasOne(Command::class);
+    }
+
+    public function livreur()
+    {
+        return $this->belongsTo(User::class, 'livreur_id');
+    }
 }

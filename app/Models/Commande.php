@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Commande extends Model
 {
     use HasFactory;
+
+    /***
+     * Relations 
+     * 
+     * */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function produits()
+    {
+        return $this->belongsToMany(Produit::class);
+    }
+
+    public function livraison()
+    {
+        return $this->belongsTo(Livraison::class);
+    }
 }
