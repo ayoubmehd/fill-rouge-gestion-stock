@@ -16,7 +16,7 @@ class CreateAdressesTable extends Migration
         Schema::create('adresses', function (Blueprint $table) {
             $table->id();
             $table->string('adressline1');
-            $table->string('adresssline2')->nullable();
+            $table->string('adressline2')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
