@@ -18,7 +18,7 @@ class CreateLivraisonsTable extends Migration
             $table->enum('status', ['pas-livre', 'livrer', 'recu', 'termine'])->nullable();
             $table->date('date_livraison')->nullable();
             $table->date('date_recu')->nullable();
-            // $table->bigInteger('livreur_id');
+            $table->foreignId('livreur_id')->constrained('users');
             $table->timestamps();
         });
     }
