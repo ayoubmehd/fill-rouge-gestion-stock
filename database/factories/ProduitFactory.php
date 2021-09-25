@@ -23,8 +23,8 @@ class ProduitFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(),
-            'prix' => $this->faker->randomFloat(2),
-            'description' => $this->faker->paragraphs(5),
+            'prix' => $this->faker->randomFloat(2, 0, 1000),
+            'description' => \collect($this->faker->paragraphs(5))->implode('<br />'),
             'quantite' => $this->faker->randomNumber(3)
         ];
     }
