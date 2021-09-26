@@ -1,0 +1,53 @@
+$link-text-color: map-get(
+    $map: $grey,
+    $key: "darken-2"
+);
+
+.navbar {
+    background-color: map-get($map: $grey, $key: "lighten-4");
+    --link-text-color: #{$link-text-color};
+    --link-background-color: transparent;
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.161));
+    height: 64px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: {
+            top: 0;
+            bottom: 0;
+        }
+        height: 100%;
+    }
+    &__nav {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    &__item {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__link {
+        text-decoration: none;
+        color: var(--link-text-color, #000000) !important;
+        background-color: var(--link-background-color, #000000) !important;
+        display: inline-block;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &-main {
+            padding: 0 1.5rem;
+        }
+        &--active {
+            --link-text-color: #{map-get($map: $blue, $key: "base")};
+            --link-background-color: #fff;
+        }
+        &-icon {
+            color: var(--link-text-color, #000000) !important;
+            padding-right: 5px;
+        }
+    }
+}

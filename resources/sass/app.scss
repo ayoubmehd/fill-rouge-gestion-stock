@@ -1,0 +1,14 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+// Variables
+@import "variables";
+@import "~vuetify/src/components/VStepper/_variables.scss";
+
+// Global Rules
+body {
+    background-color: map-get($map: $grey, $key: "lighten-3");
+}
+
+// Components
+@import "./components/navbar";
