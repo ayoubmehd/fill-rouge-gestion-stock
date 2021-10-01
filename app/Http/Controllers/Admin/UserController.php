@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -38,7 +39,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
+        $input = $request->all();
+
+        $input['password'] = Hash::make($input['password']);
+
+        User::create($input);
+
+        return \redirect()->back();
     }
 
     /**
@@ -72,7 +79,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->update($request->all());
+        $input = $request->all();
+
+        if ($input['password']) {
+            $input['password'] = Hash::make($input['password']);
+        } else $input = \collect($input)->except(['password'])->toArray();
+
+        $user->update($input);
+
+        return \redirect()->back();
     }
 
     /**
