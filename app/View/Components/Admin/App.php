@@ -46,7 +46,7 @@ class App extends Component
             [
                 'icon' =>  "mdi-lightbulb-on",
                 'text' => "Products",
-                'to' => \route('admin.products.index'),
+                'to' => \route('admin.produits.index'),
                 'exact' => true
             ],
         ];
