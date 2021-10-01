@@ -1,14 +1,41 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
 @import "variables";
-@import "~vuetify/src/components/VStepper/_variables.scss";
 
-// Global Rules
-body {
-    background-color: map-get($map: $grey, $key: "lighten-3");
+/* MaterialDesignIcons.com */
+@import "@mdi/font/scss/materialdesignicons.scss";
+
+@import "./material-bootstrap";
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 16px;
+    text-align: center;
 }
 
-// Components
 @import "./components/navbar";
+@import "./components/admin/heading";
+@import "./components/admin/dashboard";
