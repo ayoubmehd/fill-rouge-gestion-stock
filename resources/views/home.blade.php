@@ -1,23 +1,48 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <section class="pt-4">
+        @include('includes.section-heading', [
+        'sectionTitle' => 'Product You liked',
+        'sectionTo' => route('likes.index'),
+        'sectionIcon' => 'heart'
+        ])
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+        <div class="row py-3">
+            <div class="col-md-6">
+                @include('includes.produit')
+            </div>
+            <div class="col-md-6">
+                @include('includes.produit')
+            </div>
+            <div class="col-md-6">
+                @include('includes.produit')
             </div>
         </div>
-    </div>
+    </section>
+    <section class="pt-4">
+        @include('includes.section-heading', [
+        'sectionTitle' => 'Your Orders',
+        'sectionTo' => route('orders.index'),
+        'sectionIcon' => 'currency-usd'
+        ])
+
+        <div class="row py-3">
+            <div class="col-md-3">
+                @include('includes.order')
+            </div>
+            <div class="col-md-3">
+                @include('includes.order')
+            </div>
+            <div class="col-md-3">
+                @include('includes.order')
+            </div>
+            <div class="col-md-3">
+                @include('includes.order')
+            </div>
+        </div>
+    </section>
+
 </div>
 @endsection

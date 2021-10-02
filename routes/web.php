@@ -30,9 +30,23 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
 });
 
+/**
+ * Livreur Routes
+ */
+
+
+/**
+ * Users Routes
+ */
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+
+Route::resource('produits', App\Http\Controllers\ProduitController::class)->only('index');
+Route::resource('orders', App\Http\Controllers\Admin\UserController::class);
+Route::resource('likes', App\Http\Controllers\Admin\UserController::class);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
