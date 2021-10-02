@@ -26,7 +26,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
     Route::resource('orders', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('products', App\Http\Controllers\Admin\UserController::class);
+    Route::resource('produits', App\Http\Controllers\Admin\ProduitController::class);
+    Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
 });
 
 Route::get('/', function () {
