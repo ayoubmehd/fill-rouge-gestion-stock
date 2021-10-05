@@ -34,7 +34,7 @@ class App extends Component
             [
                 'icon' =>  "mdi-lightbulb-on",
                 'text' => "Products",
-                'to' => \route('produits.index'),
+                'to' => \route('produits.index', ['per_page' => 12]),
             ],
             [
                 'icon' => "mdi-cart-plus",

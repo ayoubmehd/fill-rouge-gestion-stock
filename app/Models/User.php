@@ -60,6 +60,6 @@ class User extends Authenticatable
 
     public function commandes()
     {
-        $this->belongsTo(Commande::class);
+        return $this->belongsTo(Commande::class);
     }
 }

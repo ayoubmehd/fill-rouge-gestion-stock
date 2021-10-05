@@ -43,9 +43,9 @@ Route::get('/', function () {
 });
 
 
-Route::resource('produits', App\Http\Controllers\ProduitController::class)->only('index');
-Route::resource('orders', App\Http\Controllers\Admin\UserController::class);
-Route::resource('likes', App\Http\Controllers\Admin\UserController::class);
+Route::resource('produits', App\Http\Controllers\ProduitController::class)->only(['index', 'show']);
+Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
+Route::resource('likes', App\Http\Controllers\LikeController::class);
 
 Auth::routes();
 
