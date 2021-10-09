@@ -52,9 +52,15 @@ class CommandeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $commande = Commande::with(['livraison' => function ($query) {
+            $query->with('livreur');
+        }])->withCount('produits')->find($id);
+
+        $produits = $commande->produits()->paginate($request->has('per_page') ? $request->per_page : 4);
+
+        return \view('commande', \compact('commande', 'produits'));
     }
 
     /**

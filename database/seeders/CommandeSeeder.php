@@ -15,11 +15,11 @@ class CommandeSeeder extends Seeder
     {
         \App\Models\Commande::factory(3)
             ->hasAttached(
-                \App\Models\Produit::factory(2)
+                \App\Models\Produit::factory(200)
                     ->for(
                         \App\Models\Categorie::factory()
                     ),
-                ['quantite' => rand(1, 200)]
+                ['quantite' => \mt_rand(1, 200)]
             )
             ->for(
                 \App\Models\User::factory()->state(['role' => 'user'])
