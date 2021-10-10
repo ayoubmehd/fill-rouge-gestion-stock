@@ -1,8 +1,8 @@
-    <div id="app">
+<div id="app">
 
-        <x-navbar title="User" :menu-items="$menuItems" :right-menu-items="$rightMenuItems" />
+    <x-navbar title="Livruer" :menu-items="$menuItems" :right-menu-items="$rightMenuItems" />
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <main class="py-4">
+        @yield('content')
+    </main>
+</div>

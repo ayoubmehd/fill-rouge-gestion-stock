@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\provider;
+namespace App\View\Components\livreur;
 
 use Illuminate\View\Component;
 
-class app extends Component
+class App extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,7 @@ class app extends Component
      */
     public function render()
     {
+
 
 
         $menuItems = [
@@ -55,6 +56,6 @@ class app extends Component
             ],
         ];
 
-        return view('components.provider.app', ['menuItems' => $menuItems, 'rightMenuItems' => $rightMenuItems]);
+        return view('components.livreur.app', ['menuItems' => $menuItems, 'rightMenuItems' => $rightMenuItems]);
     }
 }
