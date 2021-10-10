@@ -25,7 +25,6 @@ class ProduitController extends Controller
                     $query->where('user_id', User::find(1)->id);
                 }]
             )->paginate($request->has('per_page') ? $request->per_page : 4, ['id', 'name', 'prix', 'description']);
-        // dd($produits);
 
         return \view('produits', \compact('produits'));
     }
@@ -36,8 +35,12 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $produit = Produit::withCount('commandes')->find($id);
+
+        $commandes = $produit->commandes()->paginate($request->has('per_page') ? $request->per_page : 4);
+
+        return \view('produit', \compact('commandes', 'produit'));
     }
 }
