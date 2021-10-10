@@ -33,7 +33,13 @@ Route::name('admin.')->prefix('admin')->group(function () {
 /**
  * Livreur Routes
  */
+Route::name('livreur.')->prefix('livreur')->group(function () {
+    Route::get('/', function () {
+        return view('livreur.home');
+    })->name('index');
 
+    Route::resource('orders', App\Http\Controllers\Livruer\CommandeController::class)->only(['index', 'show']);
+});
 
 /**
  * Users Routes
@@ -45,7 +51,7 @@ Route::get('/', function () {
 
 Route::resource('produits', App\Http\Controllers\ProduitController::class)->only(['index', 'show']);
 Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
-Route::resource('likes', App\Http\Controllers\LikeController::class);
+// Route::resource('likes', App\Http\Controllers\LikeController::class);
 
 Auth::routes();
 
