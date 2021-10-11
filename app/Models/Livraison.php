@@ -15,7 +15,7 @@ class Livraison extends Model
      * */
     public function commande()
     {
-        return $this->hasOne(Command::class);
+        return $this->hasOne(Commande::class);
     }
 
     public function livreur()
