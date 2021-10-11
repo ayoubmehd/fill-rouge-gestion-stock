@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Livruer;
+namespace App\Http\Controllers\Livreur;
 
 use App\Http\Controllers\Controller;
 use App\Models\Commande;
@@ -17,7 +17,7 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        $livreur_id = Auth::check() ? Auth::user()->id : 120;
+        $livreur_id = Auth::check() ? Auth::user()->id : 137;
 
         // $commandes = Livraison::where('livreur_id', $livreur_id)->with('commande')->paginate(12, ['id']);
         $commandes = Commande::withCount('produits')->where(function ($query) {
@@ -58,7 +58,14 @@ class CommandeController extends Controller
      */
     public function show($id)
     {
-        //
+        // $livreur_id = Auth::check() ? Auth::user()->id : 137;
+        // $commande = Commande::withCount('produits')->where(function ($query) {
+        //     $query->select('livreur_id')
+        //         ->from('livraisons')
+        //         ->whereColumn('livraisons.id', 'commandes.livraison_id');
+        // }, $livreur_id)->find($id);
+
+        // dd($commande);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\FuncCall;
 
 class Livraison extends Model
 {
@@ -21,5 +22,9 @@ class Livraison extends Model
     public function livreur()
     {
         return $this->belongsTo(User::class, 'livreur_id');
+    }
+    public function commentaire()
+    {
+        return $this->hasOne(Commentaire::class);
     }
 }

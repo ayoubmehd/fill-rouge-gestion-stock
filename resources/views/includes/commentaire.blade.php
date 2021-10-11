@@ -2,8 +2,9 @@
     <div class="card-body">
         <div class="row justify-content-between">
             <div class="col-md-4 d-flex flex-column justify-content-between">
-                <h3 class="card-title"># 34
-                    {{-- {{ $commande->id }} --}}
+                <h3 class="card-title"># {{ $commande->id }}
+
+
                 </h3>
                 <p class="card-text"></p>
             </div>
@@ -13,18 +14,16 @@
                     <i class="mdi mdi-truck h3 mb-0 order-icon"></i>
                 </p>
                 <p class="card-text">
-                    20 Produits
-                    {{-- {{ $commande->produits_count }} --}}
+                    {{ $commande->produits_count }} Produits
                 </p>
             </div>
             <div class="col-md-8 d-flex flex-column justify-content-between">
                 <h3 class="card-title">
-                    add
-                    {{-- {{ $commentaire->name }} --}}
+                    {{ $commande->user->name }}
+
                 </h3>
                 <p class="card-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni id neque distinctio ipsum, nobis maxime architecto corporis! Facilis, laudantium eveniet.
-                    {{-- {{ $commentaire->content }} --}}
+                    {{ $commentaire->contenu }}
                 </p>
             </div>
             <div class="col d-flex flex-column justify-content-between align-items-end">

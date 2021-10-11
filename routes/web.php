@@ -38,7 +38,8 @@ Route::name('livreur.')->prefix('livreur')->group(function () {
         return view('livreur.home');
     })->name('index');
 
-    Route::resource('orders', App\Http\Controllers\Livruer\CommandeController::class)->only(['index', 'show']);
+    Route::resource('orders', App\Http\Controllers\Livreur\CommandeController::class)->only(['index', 'show']);
+    Route::resource('commentaires', App\Http\Controllers\Livreur\CommentaireController::class)->only(['index', 'show']);
 });
 
 /**
