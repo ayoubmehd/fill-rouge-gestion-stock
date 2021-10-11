@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Livruer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Commande;
+use App\Models\Livraison;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommandeController extends Controller
 {
@@ -14,7 +17,16 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        return view('livreur.orders');
+        $livreur_id = Auth::check() ? Auth::user()->id : 120;
+
+        // $commandes = Livraison::where('livreur_id', $livreur_id)->with('commande')->paginate(12, ['id']);
+        $commandes = Commande::withCount('produits')->where(function ($query) {
+            $query->select('livreur_id')
+                ->from('livraisons')
+                ->whereColumn('livraisons.id', 'commandes.livraison_id');
+        }, $livreur_id)->paginate(24);
+
+        return view('livreur.orders', \compact('commandes'));
     }
 
     /**
