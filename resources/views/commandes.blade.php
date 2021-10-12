@@ -9,7 +9,6 @@
 
     <div class="row">
         @foreach($commandes as $commande)
-        {{ $commande }}
 
         <div class="col-md-3">
             @include('includes.commande', ['commande' => $commande])
