@@ -39,7 +39,7 @@ class App extends Component
             [
                 'icon' => "mdi-cart-plus",
                 'text' => "Orders",
-                'to' => \route('orders.index'),
+                'to' => \route('orders.index', ['per_page' => 24]),
             ],
             [
                 'icon' =>  "mdi-account",
