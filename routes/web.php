@@ -24,7 +24,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
     })->name('index');
 
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+    // Route::resource('users', App\Http\Controllers\Admin\UserController::class);
     Route::resource('orders', App\Http\Controllers\Admin\UserController::class);
     Route::resource('produits', App\Http\Controllers\Admin\ProduitController::class);
     Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
@@ -54,6 +54,9 @@ Route::resource('produits', App\Http\Controllers\ProduitController::class)->only
 Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
 // Route::resource('likes', App\Http\Controllers\LikeController::class);
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/**
+ * Auth Routes
+ */
+require __DIR__ . '/auth.php';
