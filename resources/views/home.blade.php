@@ -10,14 +10,22 @@
         ])
 
         <div class="row py-3">
+            @php
+            $pArray = ['name' => '', 'description' => '', 'prix' => ''];
+            @endphp
             <div class="col-md-6">
-                @include('includes.produit')
+                @include('includes.produit', ['produit' => (object)$pArray])
+
             </div>
             <div class="col-md-6">
-                @include('includes.produit')
+                @include('includes.produit', ['produit' =>(object)$pArray])
+
+
             </div>
             <div class="col-md-6">
-                @include('includes.produit')
+                @include('includes.produit', ['produit' => (object)$pArray])
+
+
             </div>
         </div>
     </section>
@@ -30,16 +38,32 @@
 
         <div class="row py-3">
             <div class="col-md-3">
-                @include('includes.order')
+                @php
+                $oArray = ['id' => '', 'produits_count' => '']
+
+                @endphp
+                @include('includes.commande', ['commande' => (object) $oArray ])
+
+
+
+
+
+
             </div>
             <div class="col-md-3">
-                @include('includes.order')
+                @include('includes.commande', ['commande' => (object) $oArray ])
+
+
+
+
+
+
             </div>
             <div class="col-md-3">
-                @include('includes.order')
+                @include('includes.commande', ['commande' => (object) $oArray ])
             </div>
             <div class="col-md-3">
-                @include('includes.order')
+                @include('includes.commande', ['commande' => (object) $oArray ])
             </div>
         </div>
     </section>

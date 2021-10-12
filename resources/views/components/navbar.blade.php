@@ -1,16 +1,14 @@
 <nav class="navbar">
     <div class="container">
         <router-link to="/" tag="span" style="cursor: pointer">
-            <v-icon size="45">mdi-mustache</v-icon>
+            <i class="mdi mdi-mustache h3 mb-0"></i>
             {{ $title }}
         </router-link>
         <ul class="navbar__nav">
             @foreach($menuItems as $item)
             <li class="navbar__item">
                 <a class="navbar__link navbar__link-main" href="{{ $item['to'] }}">
-                    <v-icon class="navbar__link-icon" size="30">
-                        {{ $item['icon'] }}
-                    </v-icon>
+                    <i class="mdi {{ $item['icon'] }} h3 mb-0"></i>
                     {{ $item['text'] }}
                 </a>
             </li>
@@ -20,9 +18,12 @@
         <ul class="navbar__nav">
             @foreach($rightMenuItems as $item)
             <li class="navbar__item">
-                <a class="navbar__link">
-                    <v-icon size="30">{{ $item['icon'] }}</v-icon>
-                </a>
+                <form action="{{ $item['to'] }}" method="post">
+                    @csrf
+                    <button class="btn">
+                        <i class="mdi {{ $item['icon'] }} h3 mb-0"></i>
+                    </button>
+                </form>
             </li>
             @endforeach
         </ul>

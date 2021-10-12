@@ -13,48 +13,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/admin/{any?}', function () {
-//     return view('admin');
-// })->where("any", "[\/\w\.-]*");
+Route::middleware('auth')->group(function () {
+    Route::name('admin.')->prefix('admin')->group(function () {
 
-Route::name('admin.')->prefix('admin')->group(function () {
+        Route::get('/', function () {
+            return '';
+        })->name('index');
 
+        Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+        // Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+        Route::resource('orders', App\Http\Controllers\Admin\UserController::class);
+        Route::resource('produits', App\Http\Controllers\Admin\ProduitController::class);
+        Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
+    });
+
+    /**
+     * Livreur Routes
+     */
+    Route::name('livreur.')->prefix('livreur')->group(function () {
+        Route::get('/', function () {
+            return view('livreur.home');
+        })->name('index');
+
+        Route::resource('orders', App\Http\Controllers\Livreur\CommandeController::class)->only(['index', 'show']);
+        Route::resource('commentaires', App\Http\Controllers\Livreur\CommentaireController::class)->only(['index', 'show']);
+    });
+
+    /**
+     * Users Routes
+     */
     Route::get('/', function () {
-        return '';
-    })->name('index');
+        return view('home');
+    });
 
-    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    // Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('orders', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('produits', App\Http\Controllers\Admin\ProduitController::class);
-    Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
+    Route::resource('produits', App\Http\Controllers\ProduitController::class)->only(['index', 'show']);
+    Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
+    Route::resource('likes', App\Http\Controllers\LikeController::class);
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
-
-/**
- * Livreur Routes
- */
-Route::name('livreur.')->prefix('livreur')->group(function () {
-    Route::get('/', function () {
-        return view('livreur.home');
-    })->name('index');
-
-    Route::resource('orders', App\Http\Controllers\Livreur\CommandeController::class)->only(['index', 'show']);
-    Route::resource('commentaires', App\Http\Controllers\Livreur\CommentaireController::class)->only(['index', 'show']);
-});
-
-/**
- * Users Routes
- */
-Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::resource('produits', App\Http\Controllers\ProduitController::class)->only(['index', 'show']);
-Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
-// Route::resource('likes', App\Http\Controllers\LikeController::class);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /**
  * Auth Routes

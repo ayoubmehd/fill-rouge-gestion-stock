@@ -50,7 +50,8 @@ class App extends Component
 
         $rightMenuItems = [
             [
-                'icon' => "mdi-account"
+                'icon' => "mdi-logout",
+                'to' => \route('logout')
             ]
         ];
 

@@ -52,7 +52,8 @@ class App extends Component
                 'icon' => "mdi-truck"
             ],
             [
-                'icon' => "mdi-account"
+                'icon' => "mdi-logout",
+                'to' => \route('logout')
             ],
         ];
 
