@@ -17,7 +17,7 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        $livreur_id = Auth::check() ? Auth::user()->id : 137;
+        $livreur_id = Auth::user()->id;
 
         // $commandes = Livraison::where('livreur_id', $livreur_id)->with('commande')->paginate(12, ['id']);
         $commandes = Commande::withCount('produits')->where(function ($query) {

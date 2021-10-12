@@ -17,7 +17,7 @@ class CommentaireController extends Controller
      */
     public function index()
     {
-        $livreur_id = Auth::check() ? Auth::user()->id : 139;
+        $livreur_id = Auth::user()->id;
 
         $livraisons = Livraison::with(['livreur', 'commentaire', 'commande' => function ($query) {
             $query->with('user');
