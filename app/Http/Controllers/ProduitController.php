@@ -22,7 +22,7 @@ class ProduitController extends Controller
             Produit::with(
                 ['users_likes' =>
                 function (BelongsToMany $query) {
-                    $query->where('user_id', User::find(1)->id);
+                    $query->where('user_id', auth()->user()->id);
                 }]
             )->paginate($request->has('per_page') ? $request->per_page : 4, ['id', 'name', 'prix', 'description']);
 

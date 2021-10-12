@@ -16,7 +16,7 @@ class CommandeController extends Controller
      */
     public function index(Request $request)
     {
-        $commandes = Commande::where('user_id', User::find(1)->id)->with(['livraison', 'produits' => function (BelongsToMany $query) {
+        $commandes = Commande::where('user_id', auth()->user()->id)->with(['livraison', 'produits' => function (BelongsToMany $query) {
             $query->select('id')->sum('prix');
         }])->withCount('produits')->paginate(
             $request->has('per_page') ? $request->per_page : 12
