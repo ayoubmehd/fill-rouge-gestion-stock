@@ -1,9 +1,9 @@
 <nav class="navbar">
     <div class="container">
-        <router-link to="/" tag="span" style="cursor: pointer">
+        <a href="/" class="btn">
             <i class="mdi mdi-mustache h3 mb-0"></i>
             {{ $title }}
-        </router-link>
+        </a>
         <ul class="navbar__nav">
             @foreach($menuItems as $item)
             <li class="navbar__item">
