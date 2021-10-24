@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Commande::class);
     }
+
+    public function livraisons()
+    {
+        return $this->hasMany(Livraison::class, 'livreur_id');
+    }
 }
