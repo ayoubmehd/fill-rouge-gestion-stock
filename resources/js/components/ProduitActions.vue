@@ -1,6 +1,10 @@
 <template>
     <div>
-        <button type="button" class="btn btn-primary text-white btn-lg">
+        <button
+            @click="order"
+            type="button"
+            class="btn btn-primary text-white btn-lg"
+        >
             Order
         </button>
         <button
@@ -18,6 +22,8 @@
 </template>
 
 <script>
+import bus from "./../helpers/bus.js";
+
 export default {
     props: ["produit"],
     data() {
@@ -27,7 +33,8 @@ export default {
     },
     methods: {
         order() {
-            return;
+            bus.$emit("showMoreFor", 1000);
+            bus.$emit("newCommande", this.produit);
         },
         likeUnlike() {
             axios.get("/sanctum/csrf-cookie");
