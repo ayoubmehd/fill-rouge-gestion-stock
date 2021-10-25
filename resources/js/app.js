@@ -10,6 +10,7 @@ window.Vue = require('vue').default;
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import router from "./routes/index.js";
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,7 +34,11 @@ Vue.use(VueRouter);
 
 const app = new Vue({
     el: '#app',
+    // router,
     components: {
-        ProduitActions: () => import("./components/ProduitActions.vue")
+        ProduitActions: () => import("./components/ProduitActions.vue"),
+        Commandes: () => import("./components/Commandes.vue"),
+        ShowCommandes: () => import("./components/ShowCommandes.vue"),
+        Sidebar: () => import("./components/Sidebar.vue"),
     }
 });

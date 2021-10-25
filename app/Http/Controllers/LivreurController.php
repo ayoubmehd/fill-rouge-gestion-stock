@@ -46,7 +46,7 @@ class LivreurController extends Controller
             }])
             ->leftJoin('livraisons', 'users.id', '=', 'livraisons.livreur_id')
             ->leftJoin('commentaires', 'livraisons.id', '=', 'commentaires.livraison_id')
-            ->groupBy('users.id')->orderBy('point', "DESC")->get();
+            ->groupBy('users.id')->orderBy('point', "DESC")->paginate(6);
 
         return \response()->json($livreurs);
     }

@@ -30,26 +30,28 @@ class App extends Component
             [
                 'icon' => "mdi-view-home",
                 'text' => "Home",
-                'to' => '/',
+                'to' => \route('livreur.index'),
             ],
             [
                 'icon' =>  "mdi-lightbulb-on",
                 'text' => "Orders",
-                'to' => \route('produits.index', ['per_page' => 12]),
+                'to' => \route('livreur.orders.index'),
             ],
             [
                 'icon' => "mdi-cart-plus",
                 'text' => "Commentaires",
-                'to' => \route('orders.index'),
+                'to' => \route('livreur.commentaires.index'),
             ],
         ];
 
         $rightMenuItems = [
             [
-                'icon' => "mdi-star"
+                'icon' => "mdi-star",
+                'to' => '#'
             ],
             [
-                'icon' => "mdi-truck"
+                'icon' => "mdi-truck",
+                'to' => '#'
             ],
             [
                 'icon' => "mdi-logout",
