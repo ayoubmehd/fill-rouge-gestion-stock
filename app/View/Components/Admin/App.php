@@ -29,25 +29,21 @@ class App extends Component
                 'icon' => "mdi-view-dashboard",
                 'text' => "Dashboard",
                 'to' => \route('admin.index'),
-                'exact' => true
             ],
             [
-                'icon' => "mdi-cart-plus",
-                'text' => "Orders",
-                'to' => \route('admin.orders.index'),
-                'exact' => true
+                'icon' => "mdi-filter",
+                'text' => "Categories",
+                'to' => \route('admin.categories.index'),
             ],
             [
                 'icon' =>  "mdi-account",
                 'text' => "Users",
                 'to' => \route('admin.users.index'),
-                'exact' => true
             ],
             [
                 'icon' =>  "mdi-lightbulb-on",
                 'text' => "Products",
                 'to' => \route('admin.produits.index'),
-                'exact' => true
             ],
         ];
 
