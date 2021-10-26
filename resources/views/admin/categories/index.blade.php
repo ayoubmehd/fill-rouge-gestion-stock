@@ -10,9 +10,6 @@
                 <h1 class="mb-0">
                     Categories
                 </h1>
-                {{-- <a class="btn btn-primary btn-lg rounded-circle d-inline-flex justify-content-center align-items-center dashboard__new-btn" href="{{ route('admin.categories.create') }}" style="height: 75px; width: 75px;">
-                <i class="mdi mdi-plus"></i>
-                </a> --}}
             </div>
         </div>
 
@@ -32,7 +29,8 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-8 mb-0">
-                                    <input type="text" name="label" id="label" class="form-control d-block h-100" placeholder="{{ __('admin.produits.form.name.lable') }}" aria-describedby="helpId" />
+                                    <input type="text" name="label" id="label" class="form-control d-block h-100" placeholder="Name" aria-describedby="helpId" />
+
                                 </div>
                                 <div class="col">
                                     <button name="" id="" class="btn text-white btn-primary btn-block h-100">Save</button>

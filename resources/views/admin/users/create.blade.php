@@ -27,24 +27,27 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="username">{{ __('admin.users.fome.username.lable') }}</label>
-                            <input type="text" name="name" id="username" class="form-control" placeholder="{{ __('admin.users.form.username.lable') }}" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted">{{ __('admin.users.form.username.help') }}</small>
+                            <label for="username">username</label>
+                            <input type="text" name="name" id="username" class="form-control" placeholder="username" aria-describedby="helpId">
+
+
                         </div>
 
                         <div class="form-group">
-                            <label for="role">{{ __('admin.users.form.role.lable') }}</label>
+                            <label for="role">role</label>
+
                             <select class="custom-select" name="role" id="role">
-                                <option selected>{{ __('admin.users.form.role.placeholder') }}</option>
+                                <option selected>role</option>
                                 <option value="admin">Admin</option>
                                 <option value="livreur">Livreur</option>
                                 <option value="user">User</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="password">{{ __('admin.users.form.password.lable') }}</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('admin.users.form.password.lable') }}" aria-describedby="password">
-                            <small id="password" class="text-muted">{{ __('admin.users.form.password.help') }}</small>
+                            <label for="password">password</label>
+
+                            <input type="password" name="password" id="password" class="form-control" placeholder="password" aria-describedby="password">
+
                         </div>
 
                         <button name="" id="" class="btn text-white btn-primary btn-lg">Save</button>

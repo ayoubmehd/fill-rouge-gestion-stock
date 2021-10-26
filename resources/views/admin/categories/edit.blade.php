@@ -38,7 +38,8 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-8 mb-0">
-                                    <input value="{{$categorie->label}}" type="text" name="label" id="label" class="form-control d-block h-100" placeholder="{{ __('admin.produits.form.name.lable') }}" aria-describedby="helpId" />
+                                    <input value="{{$categorie->label}}" type="text" name="label" id="label" class="form-control d-block h-100" placeholder="name" aria-describedby="helpId" />
+
 
 
                                 </div>

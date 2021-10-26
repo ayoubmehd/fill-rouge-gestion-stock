@@ -35,31 +35,33 @@
 
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <label for="name">{{ __('admin.produits.fome.name.label') }}</label>
-                                    <input type="text" name="name" id="username" class="form-control" placeholder="{{ __('admin.produits.form.name.lable') }}" aria-describedby="helpId" />
-                                    <small id="help" class="text-muted">{{ __('admin.produits.form.name.help') }}</small>
+                                    <label for="name">name</label>
+                                    <input type="text" name="name" id="username" class="form-control" placeholder="name" aria-describedby="helpId" />
+
                                 </div>
                                 <div class="form-group col-3">
-                                    <label for="prix">{{ __('admin.produits.fome.prix.label') }}</label>
-                                    <input type="number" name="prix" id="prix" class="form-control" placeholder="{{ __('admin.produits.form.prix.lable') }}" aria-describedby="helpId" />
-                                    <small id="help" class="text-muted">{{ __('admin.produits.form.prix.help') }}</small>
+                                    <label for="prix">prix</label>
+                                    <input type="number" name="prix" id="prix" class="form-control" placeholder="prix" aria-describedby="helpId" />
                                 </div>
                                 <div class="form-group col-3">
-                                    <label for="name">{{ __('admin.produits.fome.quantite.label') }}</label>
+                                    <label for="name">quantite</label>
 
-                                    <input type="number" name="quantite" id="quantite" class="form-control" placeholder="{{ __('admin.produits.form.quantite.lable') }}" aria-describedby="helpId" />
 
-                                    <small id="help" class="text-muted">{{ __('admin.produits.form.quantite.help') }}</small>
+                                    <input type="number" name="quantite" id="quantite" class="form-control" placeholder="quantite" aria-describedby="helpId" />
+
+
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                <label for="categorie">{{ __('admin.produits.form.categorie.lable') }}</label>
+                                <label for="categorie">categorie</label>
+
 
                                 <select class="custom-select" name="categorie" id="categorie">
 
-                                    <option selected disabled>{{ __('admin.produits.form.categorie.placeholder') }}</option>
+                                    <option selected disabled>categorie</option>
+
                                     @foreach($categories as $categorie)
                                     <option value="{{ $categorie->id }}">{{ $categorie->id }}</option>
                                     @endforeach
