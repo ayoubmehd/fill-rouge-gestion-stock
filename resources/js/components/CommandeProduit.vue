@@ -29,7 +29,7 @@
                         />
                     </div>
                 </form>
-                <div class="mb-2 ml-2">{{ totale }} DH</div>
+                <div class="mb-2 ml-2">{{ totale.toFixed(2) }} DH</div>
             </div>
         </div>
     </div>
