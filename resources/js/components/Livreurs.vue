@@ -24,13 +24,13 @@ import bus from "../helpers/bus";
 import Livreur from "./Livreur.vue";
 
 export default {
+    props: ["livreurId"],
     components: {
         Livreur
     },
     data() {
         return {
             livreurs: [],
-            livreurId: null,
             url: "/livreurs",
             isLastPage: false
         };
@@ -54,7 +54,6 @@ export default {
     },
     mounted() {
         this.loadLivreurs();
-        bus.$on("livreurChange", id => (this.livreurId = id));
     }
 };
 </script>
