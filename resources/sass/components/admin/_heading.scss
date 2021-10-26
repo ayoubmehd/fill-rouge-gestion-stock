@@ -1,4 +1,10 @@
 .heading {
     display: flex;
     justify-content: center;
+    &__container {
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
