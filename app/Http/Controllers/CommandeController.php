@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commande;
+use App\Models\Livraison;
 use App\Models\User;
+use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
 
 class CommandeController extends Controller
 {
@@ -20,7 +23,7 @@ class CommandeController extends Controller
             $query->select('id')->sum('prix');
         }])->withCount('produits')->paginate(
             $request->has('per_page') ? $request->per_page : 12
-        );
+        )->onEachSide(3);
 
         return \view('commandes', \compact('commandes'));
     }
@@ -43,7 +46,31 @@ class CommandeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $livraison = new Livraison([
+            'livreur_id' => $request->livreur,
+            'status' => 'pas-livre'
+        ]);
+
+        $livraison->save();
+
+        $commande = new Commande([
+            'user_id' => $request->user()->id,
+            'livraison_id' => $livraison->id
+        ]);
+
+        $produits = [];
+
+        foreach ($request->produits as $produit) {
+            $produits[$produit['id']] = ['quantite' => $produit['quantite']];
+        }
+
+        \DB::transaction(function () use ($commande, $produits) {
+            $commande->save();
+            $commande->produits()->attach($produits);
+        });
+
+        return \response()->json($commande->with('produits:id,name', 'livraison')->find($commande->id));
     }
 
     /**

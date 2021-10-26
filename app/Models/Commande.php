@@ -9,6 +9,11 @@ class Commande extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'livraison_id'
+    ];
+
     /***
      * Relations 
      * 

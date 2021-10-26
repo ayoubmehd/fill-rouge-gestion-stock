@@ -48,16 +48,16 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('produits', App\Http\Controllers\ProduitController::class)->only(['index', 'show']);
-    Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
     Route::resource('likes', App\Http\Controllers\LikeController::class)->only(['index']);
 
     Route::post('produits/{id}/like', [App\Http\Controllers\LikeController::class, 'store']);
     Route::delete('produits/{id}/like', [App\Http\Controllers\LikeController::class, 'destroy']);
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('orders', App\Http\Controllers\CommandeController::class)->only(['index', 'show', 'store']);
+    Route::get('livreurs', [App\Http\Controllers\LivreurController::class, "index"]);
 });
 
-Route::get('livreurs', [App\Http\Controllers\LivreurController::class, "index"]);
 
 /**
  * Auth Routes

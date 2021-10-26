@@ -14,6 +14,10 @@ class Livraison extends Model
      * Relations 
      * 
      * */
+    protected $fillable = [
+        'livreur_id',
+    ];
+
     public function commande()
     {
         return $this->hasOne(Commande::class);
