@@ -10,7 +10,9 @@ $background: #f5f5f5;
         top: 0;
         bottom: 0;
     }
-    height: 64px;
+    @media screen and (min-width: 770px) {
+        height: 64px;
+    }
     .container {
         display: flex;
         justify-content: space-between;
@@ -20,12 +22,29 @@ $background: #f5f5f5;
             bottom: 0;
         }
         height: 100%;
+        // @media screen and (max-width: 770px) {
+        //     display: block;
+        // }
+    }
+    ul {
+        margin-bottom: 0;
+        padding: 0;
     }
     &__nav {
         list-style: none;
         display: flex;
+        justify-content: center;
         align-items: center;
         height: 100%;
+
+        @media screen and (max-width: 770px) {
+            &:nth-child(2) {
+                order: 2;
+            }
+            &:last-child {
+                order: 1;
+            }
+        }
     }
     &__item {
         height: 100%;
@@ -51,6 +70,11 @@ $background: #f5f5f5;
         &-icon {
             color: var(--link-text-color, #000000) !important;
             padding-right: 5px;
+        }
+        &-text {
+            @media screen and (max-width: 770px) {
+                display: none;
+            }
         }
     }
 }

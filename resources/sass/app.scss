@@ -11,6 +11,8 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+@import "./components/admin/dashboard";
+@import "./components/admin/heading";
 .btn-circle.btn-sm {
     width: 30px;
     height: 30px;
