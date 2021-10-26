@@ -14,7 +14,7 @@ class FkCategoriesProduits extends Migration
     public function up()
     {
         Schema::table('produits', function (Blueprint $table) {
-            $table->foreignId('categorie_id')->constrained();
+            $table->foreignId('categorie_id')->nullable()->constrained()->nullOnDelete();
         });
     }
 
@@ -26,7 +26,7 @@ class FkCategoriesProduits extends Migration
     public function down()
     {
         Schema::table('produits', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId("categorie_id");
         });
     }
 }
