@@ -32,7 +32,7 @@ class ProduitController extends Controller
                 $join->on('produits.id', '=', 'likes.produit_id');
             })
             ->orderBy('produits.id')
-            ->paginate(12);
+            ->paginate(12)->onEachSide(0);
 
         // dd($produits);
 
