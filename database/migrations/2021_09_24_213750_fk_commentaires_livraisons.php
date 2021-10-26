@@ -27,6 +27,7 @@ class FkCommentairesLivraisons extends Migration
     {
         Schema::table('commentaires', function (Blueprint $table) {
             //
+            $table->dropConstrainedForeignId("livraison_id");
         });
     }
 }

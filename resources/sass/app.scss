@@ -1,0 +1,43 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+/* MaterialDesignIcons.com */
+@import "@mdi/font/scss/materialdesignicons.scss";
+
+@import "./material-bootstrap";
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+@import "./components/admin/dashboard";
+@import "./components/admin/heading";
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 16px;
+    text-align: center;
+}
+
+@import "./components/navbar";
+@import "./components/admin/heading";
+@import "./components/admin/dashboard";
