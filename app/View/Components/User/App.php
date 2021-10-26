@@ -27,7 +27,7 @@ class App extends Component
 
         $menuItems = [
             [
-                'icon' => "mdi-view-home",
+                'icon' => "mdi-home",
                 'text' => "Home",
                 'to' => '/',
             ],
